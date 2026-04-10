@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChevronRight, Briefcase, Rocket, ArrowLeft, Search, Wrench, 
@@ -15,6 +15,10 @@ type View = 'home' | 'business' | 'principle' | 'tools' | 'audit' | 'agents' | '
 
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('home');
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentView]);
 
   return (
     <div className="min-h-screen p-6 md:p-12 flex flex-col">
