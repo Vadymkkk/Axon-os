@@ -448,15 +448,29 @@ const GlassCard = ({ children, className = "", onClick }: any) => (
 );
 
 const BackButton = ({ onClick }: any) => (
-  <button 
-    onClick={onClick}
-    className="flex items-center gap-3 text-white/50 hover:text-white transition-colors mb-10 w-fit group"
-  >
-    <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
-      <ArrowLeft className="w-5 h-5" />
+  <div className="sticky top-4 z-50 bg-[#050505]/80 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center px-4 py-3 h-16 mb-10 shadow-2xl">
+    <button 
+      onClick={onClick}
+      className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group shrink-0"
+    >
+      <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+        <ArrowLeft className="w-5 h-5" />
+      </div>
+      <span className="font-medium hidden sm:block">Назад</span>
+    </button>
+    
+    <div 
+      className="flex-1 overflow-hidden ml-6 md:ml-12 flex items-center relative"
+      style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+    >
+      <div className="animate-marquee whitespace-nowrap flex gap-12 pr-12 text-white/10 font-black tracking-[0.2em] text-lg uppercase">
+        <span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span>
+        <span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span>
+        <span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span>
+        <span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span>
+      </div>
     </div>
-    <span className="font-medium">Назад</span>
-  </button>
+  </div>
 );
 
 const AuditView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
