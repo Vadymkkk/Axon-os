@@ -1558,6 +1558,143 @@ const WebAppsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
   );
 };
 
+const ExpertAutonomyGrid = () => {
+  return (
+    <div className="relative w-full max-w-5xl mx-auto mb-20 p-8 md:p-16 bg-[#020202] rounded-3xl border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-50" />
+      
+      {/* Terminal Header */}
+      <div className="absolute top-6 left-6 flex gap-6 font-mono text-[10px] sm:text-xs text-white/40 tracking-widest z-20">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+          STATUS: ACTIVE
+        </div>
+        <div className="hidden sm:block">LOAD: 0%</div>
+        <div className="text-pink-500/80">ROAS: 5.2x</div>
+      </div>
+
+      <div className="relative h-[400px] md:h-[300px] flex flex-col md:flex-row items-center justify-center gap-12 md:gap-0 mt-8">
+        
+        {/* Connecting Lines (Desktop) */}
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[2px] bg-gradient-to-r from-cyan-500/0 via-cyan-500/50 to-pink-500/0 z-0">
+          <motion.div 
+            animate={{ x: ["-100%", "200%"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            className="w-1/3 h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-50"
+          />
+        </div>
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[60%] bg-gradient-to-b from-cyan-500/0 via-purple-500/50 to-pink-500/0 z-0">
+           <motion.div 
+            animate={{ y: ["-100%", "200%"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+            className="w-full h-1/3 bg-gradient-to-b from-transparent via-white to-transparent opacity-50"
+          />
+        </div>
+
+        {/* Connecting Lines (Mobile) */}
+        <div className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[80%] bg-gradient-to-b from-cyan-500/0 via-purple-500/50 to-pink-500/0 z-0">
+           <motion.div 
+            animate={{ y: ["-100%", "200%"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            className="w-full h-1/3 bg-gradient-to-b from-transparent via-white to-transparent opacity-50"
+          />
+        </div>
+
+        {/* Traffic Node (Top on mobile, Left on desktop) */}
+        <div className="absolute md:relative top-[5%] md:top-auto left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:absolute md:left-[10%] z-10 flex flex-col items-center">
+          <div className="w-16 h-16 rounded-full border border-cyan-500/30 bg-cyan-500/5 flex items-center justify-center relative backdrop-blur-sm">
+            <div className="absolute inset-0 rounded-full border border-cyan-500/10 animate-[ping_3s_ease-in-out_infinite]" />
+            <Activity className="w-6 h-6 text-cyan-400" />
+            {/* Particles */}
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{ 
+                  x: [Math.random() * 40 - 20, 0],
+                  y: [Math.random() * 40 - 20, 0],
+                  opacity: [0, 1, 0],
+                  scale: [0, 1, 0]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: i * 0.4,
+                  ease: "easeOut"
+                }}
+                className="absolute w-1 h-1 bg-cyan-300 rounded-full"
+              />
+            ))}
+          </div>
+          <div className="mt-3 font-mono text-xs text-cyan-400/70 tracking-widest uppercase">Traffic</div>
+        </div>
+
+        {/* Center Node: EXPERT CORE */}
+        <div className="relative z-20 flex flex-col items-center">
+          <div className="relative w-32 h-32 flex items-center justify-center">
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full border border-white/10 border-dashed"
+            />
+            <motion.div 
+              animate={{ rotate: -360 }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-4 rounded-full border-t border-r border-purple-500/30"
+            />
+            <div className="absolute inset-8 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-md border border-white/5 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.2)]">
+              <BrainCircuit className="w-8 h-8 text-white/80" />
+            </div>
+          </div>
+          <div className="absolute -bottom-8 font-mono text-sm text-white tracking-[0.3em] font-bold">
+            EXPERT CORE
+          </div>
+        </div>
+
+        {/* Sales Node (Right on desktop, Bottom Right on mobile) */}
+        <div className="absolute md:relative bottom-[10%] md:bottom-auto right-[15%] md:right-auto md:absolute md:right-[10%] z-10 flex flex-col items-center">
+          <div className="w-16 h-16 rounded-full border border-pink-500/30 bg-pink-500/5 flex items-center justify-center relative backdrop-blur-sm overflow-hidden">
+             {/* Micro-graph */}
+             <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center gap-1 p-3 opacity-60">
+                {[40, 60, 30, 80, 50, 90].map((h, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ height: "10%" }}
+                    animate={{ height: [`${h}%`, `${Math.max(10, h - 20)}%`, `${Math.min(100, h + 20)}%`] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.2, repeatType: "mirror" }}
+                    className="w-1.5 bg-pink-500 rounded-t-sm"
+                  />
+                ))}
+             </div>
+          </div>
+          <div className="mt-3 font-mono text-xs text-pink-400/70 tracking-widest uppercase">Sales</div>
+        </div>
+
+        {/* Support Node (Bottom Left on mobile, Bottom Center on desktop) */}
+        <div className="absolute md:relative bottom-[10%] md:bottom-auto left-[15%] md:left-auto md:absolute md:bottom-[0%] z-10 flex flex-col items-center">
+          <div className="w-16 h-16 rounded-full border border-emerald-500/30 bg-emerald-500/5 flex items-center justify-center relative backdrop-blur-sm overflow-hidden">
+            <MessageCircle className="w-5 h-5 text-emerald-400/50 absolute" />
+            {/* Collapsing Messages */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                  animate={{ opacity: [0, 1, 0], y: [10, 0, -10], scale: [0.8, 1, 0.8] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.6 }}
+                  className="w-8 h-2 bg-emerald-500/40 rounded-full mb-1"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="mt-3 font-mono text-xs text-emerald-400/70 tracking-widest uppercase">Support</div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
 const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
   return (
     <motion.div 
@@ -1582,24 +1719,7 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         </p>
       </div>
 
-      {/* ROI Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <GlassCard className="p-6 text-center border-white/5 hover:border-purple-500/30 transition-colors">
-          <div className="text-4xl font-bold text-purple-400 mb-2">X10</div>
-          <div className="text-white font-medium mb-1">До охоплень</div>
-          <p className="text-sm text-white/50">Автоматична генерація та дистрибуція контенту</p>
-        </GlassCard>
-        <GlassCard className="p-6 text-center border-white/5 hover:border-pink-500/30 transition-colors">
-          <div className="text-4xl font-bold text-pink-400 mb-2">X5</div>
-          <div className="text-white font-medium mb-1">До ціни продукту</div>
-          <p className="text-sm text-white/50">Преміальний UX та технологічна цінність для клієнта</p>
-        </GlassCard>
-        <GlassCard className="p-6 text-center border-white/5 hover:border-emerald-500/30 transition-colors">
-          <div className="text-4xl font-bold text-emerald-400 mb-2">0%</div>
-          <div className="text-white font-medium mb-1">Вигорання на рутині</div>
-          <p className="text-sm text-white/50">ШІ забирає продажі, підтримку та перевірку домашок</p>
-        </GlassCard>
-      </div>
+      <ExpertAutonomyGrid />
 
       {/* Tools Section */}
       <div className="mb-16">
