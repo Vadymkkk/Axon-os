@@ -8,7 +8,7 @@ import {
   LayoutTemplate, Share2, Mic, Database, PenTool, BrainCircuit, 
   LineChart, SlidersHorizontal, FolderOpen, FileCheck, Box, Activity,
   Terminal, Palette, CreditCard, Cpu, UserX, ZapOff, ShieldCheck,
-  Headphones, DollarSign, Code2, PieChart, Target, Layers, Calculator, LayoutDashboard
+  Headphones, DollarSign, Code2, PieChart, Target, Layers, Calculator, LayoutDashboard, Home
 } from 'lucide-react';
 
 type View = 'home' | 'business' | 'principle' | 'tools' | 'audit' | 'agents' | 'assistants' | 'ecosystem' | 'websites' | 'webapps' | 'expert';
@@ -195,7 +195,7 @@ const BusinessView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     exit={{ opacity: 0, x: -20 }}
     className="flex flex-col flex-1 max-w-4xl mx-auto w-full pt-12"
   >
-    <BackButton onClick={() => onNavigate('home')} />
+    <BackButton onClick={() => onNavigate('home')} onHome={() => onNavigate('home')} />
     
     <div className="mb-12">
       <h2 className="text-4xl md:text-5xl font-bold mb-3 flex flex-wrap items-center gap-4">
@@ -242,7 +242,7 @@ const PrincipleView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     exit={{ opacity: 0, x: -20 }}
     className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-20"
   >
-    <BackButton onClick={() => onNavigate('business')} />
+    <BackButton onClick={() => onNavigate('business')} onHome={() => onNavigate('home')} />
     
     <div className="mb-12">
       <h2 className="text-4xl md:text-5xl font-bold mb-3">
@@ -380,7 +380,7 @@ const ToolsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-4xl mx-auto w-full pt-12 pb-20"
     >
-      <BackButton onClick={() => onNavigate('business')} />
+      <BackButton onClick={() => onNavigate('business')} onHome={() => onNavigate('home')} />
       
       <div className="mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-3">
@@ -524,8 +524,8 @@ const GlassCard = ({ children, className = "", onClick }: any) => (
   </div>
 );
 
-const BackButton = ({ onClick }: any) => (
-  <div className="sticky top-4 z-50 bg-[#050505]/80 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center px-4 py-3 h-16 mb-10 shadow-2xl">
+const BackButton = ({ onClick, onHome }: any) => (
+  <div className="sticky top-4 z-50 bg-[#050505]/80 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center px-4 py-3 h-16 mb-10 shadow-2xl justify-between">
     <button 
       onClick={onClick}
       className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group shrink-0"
@@ -547,6 +547,18 @@ const BackButton = ({ onClick }: any) => (
         <span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span><span>AXON</span>
       </div>
     </div>
+
+    {onHome && (
+      <button 
+        onClick={onHome}
+        className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group shrink-0 ml-6"
+      >
+        <span className="font-medium hidden sm:block">Додому</span>
+        <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+          <Home className="w-5 h-5" />
+        </div>
+      </button>
+    )}
   </div>
 );
 
@@ -557,7 +569,7 @@ const AuditView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     exit={{ opacity: 0, x: -20 }}
     className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-20"
   >
-    <BackButton onClick={() => onNavigate('tools')} />
+    <BackButton onClick={() => onNavigate('tools')} onHome={() => onNavigate('home')} />
     
     <div className="mb-16 text-center max-w-4xl mx-auto">
       <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 mb-6">
@@ -851,7 +863,7 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-5xl mx-auto w-full pt-12 pb-24"
     >
-      <BackButton onClick={() => onNavigate('tools')} />
+      <BackButton onClick={() => onNavigate('tools')} onHome={() => onNavigate('home')} />
       
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6 backdrop-blur-md">
@@ -1017,7 +1029,7 @@ const AssistantsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-24"
     >
-      <BackButton onClick={() => onNavigate('tools')} />
+      <BackButton onClick={() => onNavigate('tools')} onHome={() => onNavigate('home')} />
       
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6 backdrop-blur-md">
@@ -1171,7 +1183,7 @@ const EcosystemView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-24"
     >
-      <BackButton onClick={() => onNavigate('tools')} />
+      <BackButton onClick={() => onNavigate('tools')} onHome={() => onNavigate('home')} />
       
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6 backdrop-blur-md">
@@ -1300,7 +1312,7 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-24"
     >
-      <BackButton onClick={() => onNavigate('tools')} />
+      <BackButton onClick={() => onNavigate('tools')} onHome={() => onNavigate('home')} />
       
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6 backdrop-blur-md">
@@ -1442,7 +1454,7 @@ const WebAppsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-24"
     >
-      <BackButton onClick={() => onNavigate('tools')} />
+      <BackButton onClick={() => onNavigate('tools')} onHome={() => onNavigate('home')} />
       
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6 backdrop-blur-md">
@@ -1703,7 +1715,7 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       exit={{ opacity: 0, x: -20 }}
       className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-24"
     >
-      <BackButton onClick={() => onNavigate('home')} />
+      <BackButton onClick={() => onNavigate('home')} onHome={() => onNavigate('home')} />
       
       <div className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6 backdrop-blur-md">
