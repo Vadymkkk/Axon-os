@@ -50,8 +50,9 @@ const HomeView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         </div>
 
         <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-semibold mb-6 leading-tight tracking-tight">
-            Чому ШІ-інструменти — це не розкіш,<br className="hidden md:block" /> а виживання?
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
+            Чому ШІ-інструменти — це <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">не розкіш, а виживання?</span>
           </h1>
         </div>
         <div className="inline-block p-5 px-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl mb-4">
@@ -136,8 +137,9 @@ const BusinessView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     <BackButton onClick={() => onNavigate('home')} />
     
     <div className="mb-12">
-      <h2 className="text-4xl font-semibold mb-3 flex items-center gap-4">
-        <Briefcase className="text-blue-400 w-8 h-8" /> Я власник бізнесу
+      <h2 className="text-4xl md:text-5xl font-bold mb-3 flex items-center gap-4">
+        <Briefcase className="text-blue-400 w-8 md:w-10 h-8 md:h-10" /> 
+        Я власник <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">бізнесу</span>
       </h2>
       <p className="text-white/50 text-lg">Оберіть розділ для продовження</p>
     </div>
@@ -150,7 +152,9 @@ const BusinessView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
         <div className="p-4 rounded-2xl bg-blue-500/10 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
           <Search className="w-8 h-8 text-blue-400" />
         </div>
-        <h3 className="text-2xl font-medium mb-3">Принцип роботи</h3>
+        <h3 className="text-2xl font-bold mb-3">
+          Принцип <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">роботи</span>
+        </h3>
         <p className="text-white/50 leading-relaxed">Як ми аналізуємо та покращуємо ваш бізнес за допомогою штучного інтелекту.</p>
       </GlassCard>
 
@@ -161,7 +165,9 @@ const BusinessView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
         <div className="p-4 rounded-2xl bg-purple-500/10 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
           <Wrench className="w-8 h-8 text-purple-400" />
         </div>
-        <h3 className="text-2xl font-medium mb-3">Інструменти для бізнесу</h3>
+        <h3 className="text-2xl font-bold mb-3">
+          Інструменти для <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">бізнесу</span>
+        </h3>
         <p className="text-white/50 leading-relaxed">Каталог ШІ-рішень, прайс-лист та порівняння з ручною роботою.</p>
       </GlassCard>
     </div>
@@ -178,7 +184,9 @@ const PrincipleView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     <BackButton onClick={() => onNavigate('business')} />
     
     <div className="mb-12">
-      <h2 className="text-4xl font-semibold mb-3">Як ми працюємо</h2>
+      <h2 className="text-4xl md:text-5xl font-bold mb-3">
+        Як ми <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">працюємо</span>
+      </h2>
       <p className="text-white/50 text-lg">Чек-ап вашого бізнесу</p>
     </div>
 
@@ -191,7 +199,9 @@ const PrincipleView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
           <div className="p-3 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 group-hover:scale-110 transition-transform duration-300 shrink-0">
             <Microscope className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-semibold leading-tight">Крок 1: Глибоке сканування</h3>
+          <h3 className="text-2xl font-bold leading-tight">
+            Крок 1: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Глибоке сканування</span>
+          </h3>
         </div>
 
         <div className="p-4 rounded-2xl bg-white/5 border border-white/5 mb-6">
@@ -228,7 +238,9 @@ const PrincipleView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
           <div className="p-3 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 group-hover:scale-110 transition-transform duration-300 shrink-0">
             <Dna className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-semibold leading-tight">Крок 2: Лабораторний висновок</h3>
+          <h3 className="text-2xl font-bold leading-tight">
+            Крок 2: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Лабораторний висновок</span>
+          </h3>
         </div>
 
         <div className="p-4 rounded-2xl bg-white/5 border border-white/5 mb-6">
@@ -261,7 +273,9 @@ const PrincipleView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
           <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 group-hover:scale-110 transition-transform duration-300 shrink-0">
             <Zap className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-semibold leading-tight">Крок 3: Рецепт на зростання</h3>
+          <h3 className="text-2xl font-bold leading-tight">
+            Крок 3: <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Рецепт на зростання</span>
+          </h3>
         </div>
 
         <div className="p-4 rounded-2xl bg-white/5 border border-white/5 mb-6">
@@ -308,7 +322,9 @@ const ToolsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       <BackButton onClick={() => onNavigate('business')} />
       
       <div className="mb-12">
-        <h2 className="text-4xl font-semibold mb-3">Інструменти для бізнесу</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-3">
+          Інструменти для <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">бізнесу</span>
+        </h2>
         <p className="text-white/50 text-lg">Каталог рішень та прайс-лист</p>
       </div>
 
@@ -486,8 +502,9 @@ const AuditView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
       <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 mb-6">
         <BrainCircuit className="w-10 h-10" />
       </div>
-      <h2 className="text-4xl md:text-5xl font-semibold mb-6 leading-tight">
-        AI-Аудит: Глибоке занурення у ДНК вашого бізнесу
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
+        AI-Аудит: Глибоке занурення у <br className="hidden sm:block" />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">ДНК вашого бізнесу</span>
       </h2>
       <p className="text-white/60 text-xl leading-relaxed">
         Ми не просто дивимось на цифри. Ми збираємо ваш бізнес в єдиний цифровий потік і пропускаємо його через Ансамбль із 7 спеціалізованих нейромереж.
@@ -498,7 +515,9 @@ const AuditView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     <div className="mb-20">
       <div className="flex items-center gap-4 mb-8">
         <span className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 text-xl font-bold border border-blue-500/30 shrink-0">1</span>
-        <h3 className="text-3xl font-semibold">Консолідація (Збір даних)</h3>
+        <h3 className="text-3xl font-bold">
+          Консолідація <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">(Збір даних)</span>
+        </h3>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -558,7 +577,9 @@ const AuditView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     <div className="mb-20">
       <div className="flex items-center gap-4 mb-8">
         <span className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold border border-purple-500/30 shrink-0">2</span>
-        <h3 className="text-3xl font-semibold">Синхронний Аналіз (Консиліум 7 нейромереж)</h3>
+        <h3 className="text-3xl font-bold">
+          Синхронний Аналіз <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">(Консиліум 7 нейромереж)</span>
+        </h3>
       </div>
       <p className="text-xl text-white/70 mb-8 max-w-3xl">
         Ваші дані аналізує наш унікальний Агент, який підключений до 7 різних ШІ-моделей одночасно. Кожна працює у своїй стихії:
@@ -593,7 +614,9 @@ const AuditView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     <div className="mb-20">
       <div className="flex items-center gap-4 mb-8">
         <span className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 text-xl font-bold border border-emerald-500/30 shrink-0">3</span>
-        <h3 className="text-3xl font-semibold">Висновок та Стратегія (Результат)</h3>
+        <h3 className="text-3xl font-bold">
+          Висновок та Стратегія <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">(Результат)</span>
+        </h3>
       </div>
       <p className="text-xl text-white/70 mb-8 max-w-3xl">
         Ви отримуєте не просто "звіт", а інструкцію до дії:
@@ -785,9 +808,9 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
 
       {/* Hard Skills Bento Grid */}
       <div className="mb-20">
-        <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+        <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
           <Cpu className="w-8 h-8 text-emerald-400" /> 
-          Hard Skills Агента
+          Hard Skills <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Агента</span>
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -796,7 +819,9 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
             <div className="p-3 rounded-xl bg-cyan-500/10 w-fit mb-4 border border-cyan-500/20">
               <Terminal className="w-6 h-6 text-cyan-400" />
             </div>
-            <h4 className="text-xl font-medium mb-2 text-white">Код та Архітектура</h4>
+            <h4 className="text-xl font-bold mb-2 text-white">
+              Код та <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Архітектура</span>
+            </h4>
             <p className="text-white/60 leading-relaxed">Самостійне написання, тестування та деплой коду. Агент може створювати скрипти, парсери та інтеграції на льоту.</p>
           </GlassCard>
 
@@ -805,7 +830,9 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
             <div className="p-3 rounded-xl bg-pink-500/10 w-fit mb-4 border border-pink-500/20">
               <Palette className="w-6 h-6 text-pink-400" />
             </div>
-            <h4 className="text-xl font-medium mb-2 text-white">Дизайн</h4>
+            <h4 className="text-xl font-bold mb-2 text-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-400">Дизайн</span>
+            </h4>
             <p className="text-white/60 leading-relaxed">Генерація UI/UX, банерів та креативів для рекламних кампаній.</p>
           </GlassCard>
 
@@ -816,7 +843,9 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
                 <div className="p-3 rounded-xl bg-emerald-500/10 w-fit mb-4 border border-emerald-500/20">
                   <CreditCard className="w-6 h-6 text-emerald-400" />
                 </div>
-                <h4 className="text-2xl font-medium mb-3 text-white">Фінансова Автономія</h4>
+                <h4 className="text-2xl font-bold mb-3 text-white">
+                  Фінансова <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Автономія</span>
+                </h4>
                 <p className="text-white/70 leading-relaxed text-lg">
                   Агенти інтегруються з фінансовими інструментами через API. Вони здатні самостійно:
                 </p>
@@ -857,7 +886,9 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
 
       {/* Comparison Table */}
       <div className="mb-20">
-        <h3 className="text-2xl font-semibold mb-8 text-center">Людина <span className="text-white/30 mx-2">vs</span> Агент AXON</h3>
+        <h3 className="text-2xl font-bold mb-8 text-center">
+          Людина <span className="text-white/30 mx-2">vs</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Агент AXON</span>
+        </h3>
         
         <div className="overflow-x-auto">
           <div className="min-w-[700px] border border-white/10 rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm">
@@ -1099,7 +1130,9 @@ const EcosystemView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
           <div className="flex-1">
-            <h3 className="text-3xl font-semibold mb-6 text-white">Математика ефективності</h3>
+            <h3 className="text-3xl font-bold mb-6 text-white">
+              Математика <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">ефективності</span>
+            </h3>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
               Разова інвестиція <strong className="text-white">від $4000</strong>. Результат — економія десятків тисяч доларів щомісяця на фонді оплати праці. Система виключає людський фактор, лікарняні та вигорання.
             </p>
@@ -1128,7 +1161,9 @@ const EcosystemView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         </div>
       </GlassCard>
 
-      <h3 className="text-2xl font-semibold mb-8 text-center">Архітектура єдиного організму</h3>
+      <h3 className="text-2xl font-bold mb-8 text-center">
+        Архітектура <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">єдиного організму</span>
+      </h3>
       <div className="relative mb-20 max-w-4xl mx-auto">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center z-10 shadow-[0_0_50px_rgba(99,102,241,0.3)] backdrop-blur-md">
           <Network className="w-12 h-12 text-indigo-400" />
@@ -1227,7 +1262,9 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
             <div className="p-3 rounded-xl bg-red-500/10 text-red-400">
               <XCircle className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-semibold text-white">Мертва візитка (Минуле)</h3>
+            <h3 className="text-2xl font-bold text-white">
+              Мертва візитка <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">(Минуле)</span>
+            </h3>
           </div>
           <ul className="space-y-4 relative z-10">
             <li className="flex items-start gap-3 text-white/60">
@@ -1251,7 +1288,9 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
             <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-semibold text-white">ШІ-Сайт AXON (2026)</h3>
+            <h3 className="text-2xl font-bold text-white">
+              ШІ-Сайт <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">AXON (2026)</span>
+            </h3>
           </div>
           <ul className="space-y-4 relative z-10">
             <li className="flex items-start gap-3 text-white/80">
@@ -1273,28 +1312,36 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         <GlassCard className="p-8 border-white/5 hover:bg-white/5 transition-colors">
           <Zap className="w-10 h-10 text-yellow-400 mb-5" />
-          <h4 className="text-xl font-semibold text-white mb-3">Швидкість як релігія</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Швидкість як <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">релігія</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Запуск за 72 години. Жодних місяців очікування та "правок шрифтів". Ми розгортаємо готову бойову одиницю швидше, ніж ваші конкуренти встигнуть провести нараду.
           </p>
         </GlassCard>
         <GlassCard className="p-8 border-white/5 hover:bg-white/5 transition-colors">
           <BrainCircuit className="w-10 h-10 text-purple-400 mb-5" />
-          <h4 className="text-xl font-semibold text-white mb-3">Інтелектуальні форми</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Інтелектуальні <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">форми</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Забудьте про "Залиште email". Наші форми — це мікро-агенти. Вони аналізують ліда в реальному часі, кваліфікують його та передають у CRM вже з готовим профілем.
           </p>
         </GlassCard>
         <GlassCard className="p-8 border-white/5 hover:bg-white/5 transition-colors">
           <Code2 className="w-10 h-10 text-emerald-400 mb-5" />
-          <h4 className="text-xl font-semibold text-white mb-3">Технологічний стек</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Технологічний <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">стек</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             React, Tailwind, Next.js. Блискавичне завантаження, ідеальна архітектура, SEO-оптимізація "з коробки". Ваш сайт працює швидше, ніж думка клієнта.
           </p>
         </GlassCard>
         <GlassCard className="p-8 border-white/5 hover:bg-white/5 transition-colors">
           <Palette className="w-10 h-10 text-pink-400 mb-5" />
-          <h4 className="text-xl font-semibold text-white mb-3">Естетика AXON OS</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Естетика <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-400">AXON OS</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Темно. Стильно. Дорого. Дизайн, який транслює домінування на ринку. Жодних шаблонів з 2010-х — лише преміальний мінімалізм.
           </p>
@@ -1353,28 +1400,36 @@ const WebAppsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         <GlassCard className="p-8 border-white/5 hover:border-purple-500/30 transition-colors group">
           <Calculator className="w-10 h-10 text-purple-400 mb-5 group-hover:scale-110 transition-transform" />
-          <h4 className="text-xl font-semibold text-white mb-3">Інтелектуальні калькулятори</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Інтелектуальні <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">калькулятори</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Розрахунок вартості складних послуг, логістичних маршрутів або окупності інвестицій з миттєвою видачею результату. Автоматизуйте прорахунки, які раніше робили менеджери.
           </p>
         </GlassCard>
         <GlassCard className="p-8 border-white/5 hover:border-pink-500/30 transition-colors group">
           <Eye className="w-10 h-10 text-pink-400 mb-5 group-hover:scale-110 transition-transform" />
-          <h4 className="text-xl font-semibold text-white mb-3">ШІ-примірочні та візуалізатори</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            ШІ-примірочні та <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-400">візуалізатори</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Інструменти, що дозволяють клієнту побачити результат до покупки (наприклад, примірка дисків на авто або б'юті-фільтри) за допомогою доповненої реальності або ШІ.
           </p>
         </GlassCard>
         <GlassCard className="p-8 border-white/5 hover:border-blue-500/30 transition-colors group">
           <LayoutDashboard className="w-10 h-10 text-blue-400 mb-5 group-hover:scale-110 transition-transform" />
-          <h4 className="text-xl font-semibold text-white mb-3">Внутрішні CRM-системи</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Внутрішні <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">CRM-системи</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Легкі та швидкі кастомні панелі керування для ваших співробітників. Жодного зайвого функціоналу — тільки ваші дані та ваші унікальні бізнес-процеси.
           </p>
         </GlassCard>
         <GlassCard className="p-8 border-white/5 hover:border-emerald-500/30 transition-colors group">
           <SlidersHorizontal className="w-10 h-10 text-emerald-400 mb-5 group-hover:scale-110 transition-transform" />
-          <h4 className="text-xl font-semibold text-white mb-3">Складні фільтри та бази даних</h4>
+          <h4 className="text-xl font-semibold text-white mb-3">
+            Складні фільтри та <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">бази даних</span>
+          </h4>
           <p className="text-white/60 leading-relaxed">
             Системи підбору товарів чи послуг на основі десятків параметрів, що працюють миттєво. Клієнт знаходить саме те, що йому потрібно, за лічені секунди.
           </p>
@@ -1385,7 +1440,9 @@ const WebAppsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/5 to-transparent"></div>
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
-            <h3 className="text-3xl font-semibold mb-6 text-white">Технологічна перевага</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+              Технологічна <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">перевага</span>
+            </h3>
             <p className="text-white/70 text-lg leading-relaxed mb-6">
               Ми використовуємо сучасну зв'язку <strong className="text-white">Next.js + Supabase</strong>. Це дозволяє вашому додатку "літати", витримувати будь-які навантаження та легко масштабуватися від 10 до 100 000 користувачів без втрати швидкості.
             </p>
@@ -1485,12 +1542,16 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
 
       {/* Tools Section */}
       <div className="mb-16">
-        <h3 className="text-3xl font-bold mb-8 text-center">Інструменти твого AI-Запуску</h3>
+        <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          Інструменти твого <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">AI-Запуску</span>
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <GlassCard className="p-8 border-blue-500/20 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity group-hover:opacity-100 opacity-50"></div>
             <Bot className="w-10 h-10 text-blue-400 mb-5 relative z-10" />
-            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">Агент-Куратор</h4>
+            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">
+              Агент-<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Куратор</span>
+            </h4>
             <p className="text-white/60 leading-relaxed relative z-10">
               ШІ, який <strong className="text-white">знає твою методику напам'ять</strong>. Він перевіряє домашні завдання 24/7, дає фідбек у твоєму стилі (tone of voice) та мотивує учнів не кидати курс.
             </p>
@@ -1499,7 +1560,9 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
           <GlassCard className="p-8 border-purple-500/20 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity group-hover:opacity-100 opacity-50"></div>
             <Globe className="w-10 h-10 text-purple-400 mb-5 relative z-10" />
-            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">Автономний ШІ-Сайт</h4>
+            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">
+              Автономний <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">ШІ-Сайт</span>
+            </h4>
             <p className="text-white/60 leading-relaxed relative z-10">
               Сайт, який не просто показує програму, а <strong className="text-white">сам продає курс</strong>. Вбудований Sales-агент спілкується з лідами прямо у віджеті або месенджерах, закриваючи заперечення.
             </p>
@@ -1508,7 +1571,9 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
           <GlassCard className="p-8 border-pink-500/20 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity group-hover:opacity-100 opacity-50"></div>
             <Smartphone className="w-10 h-10 text-pink-400 mb-5 relative z-10" />
-            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">Кастомний Додаток</h4>
+            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">
+              Кастомний <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-400">Додаток</span>
+            </h4>
             <p className="text-white/60 leading-relaxed relative z-10">
               Потужний бонус до навчання. Наприклад, <strong className="text-white">ШІ-калькулятор калорій</strong> для нутриціолога або <strong className="text-white">віртуальна примірочна</strong> для стиліста. Це підвищує чек у рази.
             </p>
@@ -1518,12 +1583,16 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
 
       {/* Stages Section */}
       <div className="mb-16">
-        <h3 className="text-3xl font-bold mb-8 text-center">Етапи AI-Запуску "Під Ключ"</h3>
+        <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          Етапи AI-Запуску <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">"Під Ключ"</span>
+        </h3>
         <div className="space-y-4">
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
             <div className="w-12 h-12 shrink-0 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xl border border-purple-500/30">1</div>
             <div>
-              <h4 className="text-xl font-semibold text-white mb-2">Оцифрування експертності (RAG)</h4>
+              <h4 className="text-xl font-semibold text-white mb-2">
+                Оцифрування експертності <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">(RAG)</span>
+              </h4>
               <p className="text-white/60">Ми завантажуємо ваші лекції, пости, голосові повідомлення та методички у векторну базу даних. ШІ стає вашим цифровим клоном.</p>
             </div>
           </div>
@@ -1531,7 +1600,9 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
             <div className="w-12 h-12 shrink-0 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xl border border-blue-500/30">2</div>
             <div>
-              <h4 className="text-xl font-semibold text-white mb-2">Розробка інфраструктури</h4>
+              <h4 className="text-xl font-semibold text-white mb-2">
+                Розробка <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">інфраструктури</span>
+              </h4>
               <p className="text-white/60">Створюємо ШІ-сайт для конвертації трафіку, налаштовуємо Sales-агента для продажів у Telegram/Instagram та розробляємо кастомний додаток-бонус.</p>
             </div>
           </div>
@@ -1539,7 +1610,9 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
             <div className="w-12 h-12 shrink-0 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl border border-emerald-500/30">3</div>
             <div>
-              <h4 className="text-xl font-semibold text-white mb-2">Автоматизація виконання (Fulfillment)</h4>
+              <h4 className="text-xl font-semibold text-white mb-2">
+                Автоматизація виконання <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">(Fulfillment)</span>
+              </h4>
               <p className="text-white/60">Підключаємо Агента-Куратора до вашої платформи (GetCourse, Telegram-канал). Він автоматично видає доступи, перевіряє ДЗ та відповідає на запитання учнів.</p>
             </div>
           </div>
@@ -1547,7 +1620,9 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
             <div className="w-12 h-12 shrink-0 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold text-xl border border-pink-500/30">4</div>
             <div>
-              <h4 className="text-xl font-semibold text-white mb-2">Масштабування</h4>
+              <h4 className="text-xl font-semibold text-white mb-2">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-400">Масштабування</span>
+              </h4>
               <p className="text-white/60">Ви записуєте новий контент, а система автономно обробляє тисячі учнів без розширення штату кураторів та менеджерів з продажу.</p>
             </div>
           </div>
