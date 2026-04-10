@@ -198,9 +198,9 @@ const BusinessView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
     <BackButton onClick={() => onNavigate('home')} />
     
     <div className="mb-12">
-      <h2 className="text-4xl md:text-5xl font-bold mb-3 flex items-center gap-4">
-        <Briefcase className="text-blue-400 w-8 md:w-10 h-8 md:h-10" /> 
-        Я власник <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">бізнесу</span>
+      <h2 className="text-4xl md:text-5xl font-bold mb-3 flex flex-wrap items-center gap-4">
+        <Briefcase className="text-blue-400 w-8 md:w-10 h-8 md:h-10 shrink-0" /> 
+        <span>Я власник <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">бізнесу</span></span>
       </h2>
       <p className="text-white/50 text-lg">Оберіть розділ для продовження</p>
     </div>
@@ -869,9 +869,9 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
 
       {/* Hard Skills Bento Grid */}
       <div className="mb-20">
-        <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-          <Cpu className="w-8 h-8 text-emerald-400" /> 
-          Hard Skills <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Агента</span>
+        <h3 className="text-2xl font-bold mb-8 flex flex-wrap items-center gap-3">
+          <Cpu className="w-8 h-8 text-emerald-400 shrink-0" /> 
+          <span>Hard Skills <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Агента</span></span>
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1226,30 +1226,30 @@ const EcosystemView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         Архітектура <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">єдиного організму</span>
       </h3>
       <div className="relative mb-20 max-w-4xl mx-auto">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center z-10 shadow-[0_0_50px_rgba(99,102,241,0.3)] backdrop-blur-md">
-          <Network className="w-12 h-12 text-indigo-400" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center z-10 shadow-[0_0_50px_rgba(99,102,241,0.3)] backdrop-blur-md">
+          <Network className="w-8 h-8 sm:w-12 sm:h-12 text-indigo-400" />
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-48 gap-y-16 relative z-0">
-          <GlassCard className="p-6 text-center border-white/10 relative group hover:border-emerald-500/30 transition-colors">
-            <DollarSign className="w-8 h-8 text-emerald-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-            <h4 className="font-semibold text-white mb-2 text-lg">Sales-Вузол</h4>
-            <p className="text-sm text-white/50">Генерація та закриття угод</p>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-28 sm:gap-x-48 sm:gap-y-16 relative z-0">
+          <GlassCard className="p-4 sm:p-6 text-center border-white/10 relative group hover:border-emerald-500/30 transition-colors">
+            <DollarSign className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-400 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+            <h4 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-lg">Sales-Вузол</h4>
+            <p className="text-xs sm:text-sm text-white/50 leading-tight">Генерація та закриття угод</p>
           </GlassCard>
-          <GlassCard className="p-6 text-center border-white/10 relative group hover:border-cyan-500/30 transition-colors">
-            <Headphones className="w-8 h-8 text-cyan-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-            <h4 className="font-semibold text-white mb-2 text-lg">Support-Вузол</h4>
-            <p className="text-sm text-white/50">Миттєва підтримка клієнтів</p>
+          <GlassCard className="p-4 sm:p-6 text-center border-white/10 relative group hover:border-cyan-500/30 transition-colors">
+            <Headphones className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+            <h4 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-lg">Support-Вузол</h4>
+            <p className="text-xs sm:text-sm text-white/50 leading-tight">Миттєва підтримка клієнтів</p>
           </GlassCard>
-          <GlassCard className="p-6 text-center border-white/10 relative group hover:border-purple-500/30 transition-colors">
-            <Users className="w-8 h-8 text-purple-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-            <h4 className="font-semibold text-white mb-2 text-lg">HR-Вузол</h4>
-            <p className="text-sm text-white/50">Скринінг та онбординг</p>
+          <GlassCard className="p-4 sm:p-6 text-center border-white/10 relative group hover:border-purple-500/30 transition-colors">
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+            <h4 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-lg">HR-Вузол</h4>
+            <p className="text-xs sm:text-sm text-white/50 leading-tight">Скринінг та онбординг</p>
           </GlassCard>
-          <GlassCard className="p-6 text-center border-white/10 relative group hover:border-yellow-500/30 transition-colors">
-            <PieChart className="w-8 h-8 text-yellow-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-            <h4 className="font-semibold text-white mb-2 text-lg">Finance-Вузол</h4>
-            <p className="text-sm text-white/50">Аудит та контроль cash flow</p>
+          <GlassCard className="p-4 sm:p-6 text-center border-white/10 relative group hover:border-yellow-500/30 transition-colors">
+            <PieChart className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+            <h4 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-lg">Finance-Вузол</h4>
+            <p className="text-xs sm:text-sm text-white/50 leading-tight">Аудит та контроль cash flow</p>
           </GlassCard>
         </div>
       </div>
@@ -1320,7 +1320,7 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <GlassCard className="p-8 border-red-500/20 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 rounded-full blur-3xl -mr-32 -mt-32 transition-opacity group-hover:opacity-100 opacity-50"></div>
           <div className="flex items-center gap-4 mb-6 relative z-10">
-            <div className="p-3 rounded-xl bg-red-500/10 text-red-400">
+            <div className="p-3 rounded-xl bg-red-500/10 text-red-400 shrink-0">
               <XCircle className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-bold text-white">
@@ -1346,7 +1346,7 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <GlassCard className="p-8 border-blue-500/30 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-32 -mt-32 transition-opacity group-hover:opacity-100 opacity-50"></div>
           <div className="flex items-center gap-4 mb-6 relative z-10">
-            <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
+            <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 shrink-0">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-bold text-white">
