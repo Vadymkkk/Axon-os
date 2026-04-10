@@ -11,7 +11,7 @@ import {
   Headphones, DollarSign, Code2, PieChart, Target, Layers, Calculator, LayoutDashboard
 } from 'lucide-react';
 
-type View = 'home' | 'business' | 'principle' | 'tools' | 'audit' | 'agents' | 'assistants' | 'ecosystem' | 'websites' | 'webapps';
+type View = 'home' | 'business' | 'principle' | 'tools' | 'audit' | 'agents' | 'assistants' | 'ecosystem' | 'websites' | 'webapps' | 'expert';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -29,14 +29,13 @@ export default function App() {
         {currentView === 'ecosystem' && <EcosystemView key="ecosystem" onNavigate={setCurrentView} />}
         {currentView === 'websites' && <WebsitesView key="websites" onNavigate={setCurrentView} />}
         {currentView === 'webapps' && <WebAppsView key="webapps" onNavigate={setCurrentView} />}
+        {currentView === 'expert' && <ExpertView key="expert" onNavigate={setCurrentView} />}
       </AnimatePresence>
     </div>
   );
 }
 
 const HomeView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
-  const [showExpertMessage, setShowExpertMessage] = useState(false);
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -105,27 +104,13 @@ const HomeView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
           <div className="relative group w-full">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
             <GlassButton 
-              onClick={() => setShowExpertMessage(!showExpertMessage)} 
+              onClick={() => onNavigate('expert')} 
               icon={<Rocket className="w-6 h-6 text-purple-400" />}
               className="relative !bg-[#050505] hover:!bg-[#111]"
             >
               Я експерт
             </GlassButton>
           </div>
-          <AnimatePresence>
-            {showExpertMessage && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
-                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                className="overflow-hidden absolute top-full left-0 w-full z-10"
-              >
-                <div className="p-5 text-sm text-white/80 bg-black/60 rounded-2xl border border-white/10 text-center backdrop-blur-xl shadow-2xl">
-                  Розділ наповнюється. Тут буде система запусків від Андрія.
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </div>
     </motion.div>
@@ -908,7 +893,7 @@ const AgentsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500"></div>
         <button 
           className="relative w-full py-6 px-8 rounded-2xl bg-[#050505] border border-white/10 text-white font-semibold text-xl hover:bg-[#111] transition-colors flex items-center justify-center gap-4"
-          onClick={() => alert('Запит на впровадження агента відправлено!')}
+          onClick={() => window.open('https://t.me/blvckvvs', '_blank')}
         >
           <Bot className="w-7 h-7 text-emerald-400" />
           Впровадити агента, який почне приносити прибуток сьогодні
@@ -1187,7 +1172,7 @@ const EcosystemView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500"></div>
         <button 
           className="relative w-full py-6 px-8 rounded-2xl bg-[#050505] border border-white/10 text-white font-semibold text-xl hover:bg-[#111] transition-colors flex items-center justify-center gap-4"
-          onClick={() => alert('Запит на впровадження екосистеми відправлено!')}
+          onClick={() => window.open('https://t.me/blvckvvs', '_blank')}
         >
           <Zap className="w-7 h-7 text-indigo-400" />
           Запустити Business Autopilot
@@ -1317,7 +1302,7 @@ const WebsitesView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         
         <button 
           className="relative px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-lg hover:from-blue-500 hover:to-cyan-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] flex items-center gap-3"
-          onClick={() => alert('Запит на розробку ШІ-сайту відправлено!')}
+          onClick={() => window.open('https://t.me/blvckvvs', '_blank')}
         >
           <Globe className="w-6 h-6" />
           Замовити ШІ-Сайт
@@ -1431,10 +1416,138 @@ const WebAppsView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         
         <button 
           className="relative px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] flex items-center gap-3"
-          onClick={() => alert('Запит на розробку веб-додатка відправлено!')}
+          onClick={() => window.open('https://t.me/blvckvvs', '_blank')}
         >
           <Smartphone className="w-6 h-6" />
           Замовити Веб-додаток
+        </button>
+      </div>
+    </motion.div>
+  );
+};
+
+const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -20 }}
+      className="flex flex-col flex-1 max-w-6xl mx-auto w-full pt-12 pb-24"
+    >
+      <BackButton onClick={() => onNavigate('home')} />
+      
+      <div className="mb-16 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6 backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+          <span className="text-sm font-medium text-purple-400 tracking-wider uppercase">Масштабування експертності</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
+          AI-Запуски для Експертів: <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Ти створюєш контент — ШІ будує бізнес</span>
+        </h2>
+        <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
+          Перетвори свої знання (коучинг, б'юті, викладання) на масштабну IT-систему. З AXON ти переходиш із ліги ремісників у лігу <strong className="text-white">технологічних підприємців</strong>.
+        </p>
+      </div>
+
+      {/* ROI Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <GlassCard className="p-6 text-center border-white/5 hover:border-purple-500/30 transition-colors">
+          <div className="text-4xl font-bold text-purple-400 mb-2">X10</div>
+          <div className="text-white font-medium mb-1">До охоплень</div>
+          <p className="text-sm text-white/50">Автоматична генерація та дистрибуція контенту</p>
+        </GlassCard>
+        <GlassCard className="p-6 text-center border-white/5 hover:border-pink-500/30 transition-colors">
+          <div className="text-4xl font-bold text-pink-400 mb-2">X5</div>
+          <div className="text-white font-medium mb-1">До ціни продукту</div>
+          <p className="text-sm text-white/50">Преміальний UX та технологічна цінність для клієнта</p>
+        </GlassCard>
+        <GlassCard className="p-6 text-center border-white/5 hover:border-emerald-500/30 transition-colors">
+          <div className="text-4xl font-bold text-emerald-400 mb-2">0%</div>
+          <div className="text-white font-medium mb-1">Вигорання на рутині</div>
+          <p className="text-sm text-white/50">ШІ забирає продажі, підтримку та перевірку домашок</p>
+        </GlassCard>
+      </div>
+
+      {/* Tools Section */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold mb-8 text-center">Інструменти твого AI-Запуску</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <GlassCard className="p-8 border-blue-500/20 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity group-hover:opacity-100 opacity-50"></div>
+            <Bot className="w-10 h-10 text-blue-400 mb-5 relative z-10" />
+            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">Агент-Куратор</h4>
+            <p className="text-white/60 leading-relaxed relative z-10">
+              ШІ, який <strong className="text-white">знає твою методику напам'ять</strong>. Він перевіряє домашні завдання 24/7, дає фідбек у твоєму стилі (tone of voice) та мотивує учнів не кидати курс.
+            </p>
+          </GlassCard>
+          
+          <GlassCard className="p-8 border-purple-500/20 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity group-hover:opacity-100 opacity-50"></div>
+            <Globe className="w-10 h-10 text-purple-400 mb-5 relative z-10" />
+            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">Автономний ШІ-Сайт</h4>
+            <p className="text-white/60 leading-relaxed relative z-10">
+              Сайт, який не просто показує програму, а <strong className="text-white">сам продає курс</strong>. Вбудований Sales-агент спілкується з лідами прямо у віджеті або месенджерах, закриваючи заперечення.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-8 border-pink-500/20 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity group-hover:opacity-100 opacity-50"></div>
+            <Smartphone className="w-10 h-10 text-pink-400 mb-5 relative z-10" />
+            <h4 className="text-xl font-semibold text-white mb-3 relative z-10">Кастомний Додаток</h4>
+            <p className="text-white/60 leading-relaxed relative z-10">
+              Потужний бонус до навчання. Наприклад, <strong className="text-white">ШІ-калькулятор калорій</strong> для нутриціолога або <strong className="text-white">віртуальна примірочна</strong> для стиліста. Це підвищує чек у рази.
+            </p>
+          </GlassCard>
+        </div>
+      </div>
+
+      {/* Stages Section */}
+      <div className="mb-16">
+        <h3 className="text-3xl font-bold mb-8 text-center">Етапи AI-Запуску "Під Ключ"</h3>
+        <div className="space-y-4">
+          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="w-12 h-12 shrink-0 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xl border border-purple-500/30">1</div>
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-2">Оцифрування експертності (RAG)</h4>
+              <p className="text-white/60">Ми завантажуємо ваші лекції, пости, голосові повідомлення та методички у векторну базу даних. ШІ стає вашим цифровим клоном.</p>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="w-12 h-12 shrink-0 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xl border border-blue-500/30">2</div>
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-2">Розробка інфраструктури</h4>
+              <p className="text-white/60">Створюємо ШІ-сайт для конвертації трафіку, налаштовуємо Sales-агента для продажів у Telegram/Instagram та розробляємо кастомний додаток-бонус.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="w-12 h-12 shrink-0 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl border border-emerald-500/30">3</div>
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-2">Автоматизація виконання (Fulfillment)</h4>
+              <p className="text-white/60">Підключаємо Агента-Куратора до вашої платформи (GetCourse, Telegram-канал). Він автоматично видає доступи, перевіряє ДЗ та відповідає на запитання учнів.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="w-12 h-12 shrink-0 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold text-xl border border-pink-500/30">4</div>
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-2">Масштабування</h4>
+              <p className="text-white/60">Ви записуєте новий контент, а система автономно обробляє тисячі учнів без розширення штату кураторів та менеджерів з продажу.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center relative group max-w-2xl mx-auto">
+        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500"></div>
+        <button 
+          className="relative w-full py-6 px-8 rounded-2xl bg-[#050505] border border-white/10 text-white font-semibold text-xl hover:bg-[#111] transition-colors flex items-center justify-center gap-4"
+          onClick={() => window.open('https://t.me/blvckvvs', '_blank')}
+        >
+          <Rocket className="w-7 h-7 text-purple-400" />
+          Обговорити мій AI-Запуск
         </button>
       </div>
     </motion.div>
