@@ -1814,7 +1814,7 @@ const ExpertView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500"></div>
         <button 
           className="relative w-full py-6 px-8 rounded-2xl bg-[#050505] border border-white/10 text-white font-semibold text-xl hover:bg-[#111] transition-colors flex items-center justify-center gap-4"
-          onClick={() => window.open('https://t.me/blvckvvs', '_blank')}
+          onClick={() => window.open('https://t.me/andrew_polozovskiy', '_blank')}
         >
           <Rocket className="w-7 h-7 text-purple-400" />
           Обговорити мій AI-Запуск
