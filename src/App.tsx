@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChevronRight, Briefcase, Rocket, ArrowLeft, Search, Wrench, 
@@ -35,6 +35,93 @@ export default function App() {
   );
 }
 
+const SmartCenter = () => {
+  const [factIndex, setFactIndex] = useState(0);
+  const facts = [
+    { number: "+240%", text: "Конверсії", subtext: "AXON Sales Agent", color: "text-cyan-400" },
+    { number: "60%", text: "Економії", subtext: "AXON Support Agent", color: "text-fuchsia-400" },
+    { number: "0%", text: "Вигорання", subtext: "AXON Expert Launch", color: "text-purple-400" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFactIndex((prev) => (prev + 1) % facts.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-4xl mx-auto h-80 md:h-96 flex items-center justify-center mb-16 overflow-hidden rounded-3xl bg-[#050505] border border-white/5 shadow-2xl">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" />
+
+      {/* Core Sphere Glow */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-[#22d3ee] to-[#e879f9] blur-[80px]"
+      />
+      
+      {/* Core Sphere Solid */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.05, 1],
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#22d3ee]/20 to-[#e879f9]/20 backdrop-blur-xl border border-white/20 shadow-[inset_0_0_30px_rgba(255,255,255,0.1)]"
+      />
+
+      {/* Particles Container 1 */}
+      <motion.div 
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/5 border-dashed"
+      >
+        <div className="absolute top-0 left-1/2 w-3 h-3 bg-[#22d3ee] rounded-full shadow-[0_0_15px_#22d3ee]" />
+        <div className="absolute bottom-1/4 right-0 w-2 h-2 bg-[#e879f9] rounded-full shadow-[0_0_10px_#e879f9]" />
+        <div className="absolute top-1/2 left-0 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_5px_white]" />
+      </motion.div>
+
+      {/* Particles Container 2 */}
+      <motion.div 
+        animate={{ rotate: -360 }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute w-80 h-80 md:w-[400px] md:h-[400px] rounded-full border border-white/5"
+      >
+        <div className="absolute bottom-0 left-1/4 w-2.5 h-2.5 bg-[#e879f9] rounded-full shadow-[0_0_12px_#e879f9]" />
+        <div className="absolute top-1/4 right-0 w-2 h-2 bg-[#22d3ee] rounded-full shadow-[0_0_10px_#22d3ee]" />
+      </motion.div>
+
+      {/* Text Overlay */}
+      <div className="relative z-10 text-center flex flex-col items-center justify-center h-full w-full pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={factIndex}
+            initial={{ opacity: 0, y: 15, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -15, scale: 0.9 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-center"
+          >
+            <div className={`text-6xl md:text-8xl font-black mb-2 tracking-tighter ${facts[factIndex].color} drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]`}>
+              {facts[factIndex].number}
+            </div>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+              {facts[factIndex].text}
+            </div>
+            <div className="text-xs md:text-sm font-medium text-white/80 uppercase tracking-[0.2em] bg-black/60 px-5 py-2 rounded-full border border-white/10 backdrop-blur-md">
+              {facts[factIndex].subtext}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
+
 const HomeView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
   return (
     <motion.div 
@@ -62,24 +149,7 @@ const HomeView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mb-12">
-        <BenefitCard 
-          icon={<Clock className="w-6 h-6 text-blue-400" />} 
-          text="Робота 24/7 (захоплення лідів вночі)" 
-        />
-        <BenefitCard 
-          icon={<Shield className="w-6 h-6 text-purple-400" />} 
-          text="Відсутність людського фактора (емоцій, ліні, втоми)" 
-        />
-        <BenefitCard 
-          icon={<TrendingUp className="w-6 h-6 text-emerald-400" />} 
-          text="Миттєве масштабування без розширення штату" 
-        />
-        <BenefitCard 
-          icon={<Eye className="w-6 h-6 text-cyan-400" />} 
-          text="Повна прозорість: ви бачите кожну дію системи в цифрах" 
-        />
-      </div>
+      <SmartCenter />
 
       <div className="text-center mb-8">
         <p className="text-lg md:text-xl text-white/70 font-medium">
@@ -117,15 +187,6 @@ const HomeView = ({ onNavigate }: { onNavigate: (v: View) => void }) => {
     </motion.div>
   );
 };
-
-const BenefitCard = ({ icon, text }: { icon: React.ReactNode, text: string }) => (
-  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 p-5 sm:p-6 rounded-3xl bg-white/5 border border-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:shadow-lg group h-full">
-    <div className="flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-      {icon}
-    </div>
-    <p className="text-white/80 leading-relaxed font-medium text-base sm:text-lg text-left">{text}</p>
-  </div>
-);
 
 const BusinessView = ({ onNavigate }: { onNavigate: (v: View) => void }) => (
   <motion.div 
